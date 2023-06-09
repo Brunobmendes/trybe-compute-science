@@ -19,7 +19,19 @@ def notRecursivePairs(arr):
     return pairStack
 
 
-print(randomArr)
+def recursivePairs(arr, number):
+    if len(arr) <= 0:
+        return number
+    else:
+        if arr[-1] % 2 == 0:
+            newArr = arr.pop(-1)
+            return recursivePairs(newArr, number + 1)
+        newArr = arr.pop(-1)
+        recursivePairs(newArr, number)
+
+
+print(len(randomArr))
 print(
     f"numero de pares na função não recursiva: {notRecursivePairs(randomArr)}"
 )
+print(recursivePairs(randomArr, 0))
